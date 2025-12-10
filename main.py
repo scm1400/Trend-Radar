@@ -3628,7 +3628,7 @@ def split_content_into_batches(
 
         # 逐个处理新增新闻来源
             for source_data in report_data["new_titles"]:
-            source_header = ""
+                    source_header = ""
             if format_type in ("wework", "bark"):
                     source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])}건):\n\n"
             elif format_type == "telegram":
