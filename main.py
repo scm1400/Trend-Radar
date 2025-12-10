@@ -3628,19 +3628,19 @@ def split_content_into_batches(
 
         # 逐个处理新增新闻来源
             for source_data in report_data["new_titles"]:
-                    source_header = ""
-            if format_type in ("wework", "bark"):
-                    source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])}건):\n\n"
-            elif format_type == "telegram":
-                    source_header = f"{source_data['source_name']} ({len(source_data['titles'])}건):\n\n"
-            elif format_type == "ntfy":
-                    source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])}건):\n\n"
-            elif format_type == "feishu":
-                    source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])}건):\n\n"
-            elif format_type == "dingtalk":
-                    source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])}건):\n\n"
-            elif format_type == "slack":
-                source_header = f"*{source_data['source_name']}* ({len(source_data['titles'])}건):\n\n"
+                source_header = ""
+                if format_type in ("wework", "bark"):
+                        source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])}건):\n\n"
+                elif format_type == "telegram":
+                        source_header = f"{source_data['source_name']} ({len(source_data['titles'])}건):\n\n"
+                elif format_type == "ntfy":
+                        source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])}건):\n\n"
+                elif format_type == "feishu":
+                        source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])}건):\n\n"
+                elif format_type == "dingtalk":
+                        source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])}건):\n\n"
+                elif format_type == "slack":
+                    source_header = f"*{source_data['source_name']}* ({len(source_data['titles'])}건):\n\n"
 
             # 构建第一条新增新闻
             first_news_line = ""
