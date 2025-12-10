@@ -10,7 +10,8 @@
       "WebFetch(domain:gist.github.com)",
       "Bash(pnpm run presource:*)",
       "Bash(pnpm install)",
-      "Bash(pnpm install:*)"
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run typecheck)"
     ]
   }
 }
