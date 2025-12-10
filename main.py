@@ -634,7 +634,7 @@ class DataFetcher:
             id_value = id_info
             alias = id_value
 
-        url = f"https://newsnow.busiyi.world/api/s?id={id_value}&latest"
+        url = f"https://news.zep.works/api/s?id={id_value}&latest"
 
         proxies = None
         if self.proxy_url:

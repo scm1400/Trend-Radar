@@ -157,7 +157,7 @@ class SystemManagementTools:
                 id_to_name[id_value] = name
 
                 # 构建请求URL
-                url = f"https://newsnow.busiyi.world/api/s?id={id_value}&latest"
+                url = f"https://news.zep.works/api/s?id={id_value}&latest"
 
                 headers = {
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
