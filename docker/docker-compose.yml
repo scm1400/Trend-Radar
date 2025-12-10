@@ -1,15 +1,14 @@
 services:
   trend-radar:
     image: wantcat/trendradar:latest
-    container_name: trend-radar
     restart: unless-stopped
 
     ports:
       - "127.0.0.1:${WEBSERVER_PORT:-8080}:${WEBSERVER_PORT:-8080}"
 
     volumes:
-      - /data/coolify/trendradar/config:/app/config:ro
-      - /data/coolify/trendradar/output:/app/output
+      - trend_config:/app/config:ro
+      - trend_output:/app/output
 
     environment:
       - TZ=Asia/Shanghai
@@ -59,15 +58,14 @@ services:
 
   trend-radar-mcp:
     image: wantcat/trendradar-mcp:latest
-    container_name: trend-radar-mcp
     restart: unless-stopped
 
     ports:
       - "127.0.0.1:3333:3333"
 
     volumes:
-      - /data/coolify/trendradar/config:/app/config:ro
-      - /data/coolify/trendradar/output:/app/output:ro
+      - trend_config:/app/config:ro
+      - trend_output:/app/output:ro
 
     environment:
       - TZ=Asia/Shanghai
