@@ -1,113 +1,110 @@
-胖东来
-于东来
+AI
+artificial intelligence
+machine learning
+deep learning
+LLM
+GPT
 
-DeepSeek
-梁文锋
+OpenAI
+ChatGPT
+GPT-4
+GPT-5
+Sam Altman
 
-华为
-鸿蒙
-HarmonyOS
-任正非
+Anthropic
+Claude
 
-比亚迪
-王传福
+Google
+Gemini
+DeepMind
 
-大疆
-DJI
-
-宇树
-王兴兴
-
-智元
-灵犀
-稚晖君
-彭志辉
-
-黑神话
-冯骥
-
-影之刃零
-梁其伟
-
-哪吒
-饺子
-杨宇
-!车
-!餐
-
-三体
-流浪地球
-刘慈欣
-郭帆
-
-申奥
-
-京东
-刘强东
-
-字节
-bytedance
-张一鸣
-
-特斯拉
-马斯克
-
-微软
 Microsoft
+Copilot
+Azure
 
-英伟达
+Meta
+Llama
+
+Apple
+iPhone
+iPad
+Mac
+iOS
+Vision Pro
+
+Tesla
+Elon Musk
+SpaceX
+Starlink
+
 NVIDIA
-黄仁勋
+GPU
+CUDA
+Jensen Huang
 
 AMD
 
-谷歌
-google
-gemini
-deepmind
+startup
+funding
+YC
+Y Combinator
+Series A
+seed round
+acquisition
 
-chatgpt
-openai
-sora
+open source
+GitHub
+repository
+developer
+programming
 
-claude
-Anthropic
+Python
+JavaScript
+TypeScript
+Rust
+Go
 
-iphone
-ipad
-mac
-ios
+React
+Next.js
+Node.js
+Vue
 
-ai
-!gai
-人工智能
+AWS
+cloud
+serverless
+Kubernetes
+Docker
 
-自动驾驶
+crypto
+Bitcoin
+Ethereum
+blockchain
+Web3
 
-机器人
+cybersecurity
+security
+vulnerability
+hack
+data breach
 
-国产
-中国
+robotics
+autonomous
+self-driving
 
-美国
-日本
-韩国
+quantum
+computing
 
-芯片
-光刻机
+API
+SDK
+framework
+library
 
-科技
+database
+PostgreSQL
+MongoDB
+Redis
 
-核能
-
-水电站
-雅鲁藏布江
-
-新质生产力
-
-月球
-登月
-火星
-宇宙
-飞船
-航空
+launch
+release
+update
+beta

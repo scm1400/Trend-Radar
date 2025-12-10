@@ -383,8 +383,8 @@ def load_config():
     if config["SLACK_WEBHOOK_URL"]:
         accounts = parse_multi_account_config(config["SLACK_WEBHOOK_URL"])
         count = min(len(accounts), max_accounts)
-        slack_source = "环境变量" if os.environ.get("SLACK_WEBHOOK_URL") else "配置文件"
-        notification_sources.append(f"Slack({slack_source}, {count}个账号)")
+        slack_source = "환경변수" if os.environ.get("SLACK_WEBHOOK_URL") else "설정파일"
+        notification_sources.append(f"Slack({slack_source}, {count}개 계정)")
 
     if notification_sources:
         print(f"通知渠道配置来源: {', '.join(notification_sources)}")
@@ -1855,7 +1855,7 @@ def format_title_for_platform(
         if title_data["time_display"]:
             result += f" `- {title_data['time_display']}`"
         if title_data["count"] > 1:
-            result += f" `({title_data['count']}次)`"
+            result += f" `({title_data['count']}회)`"
 
         return result
 
@@ -3181,7 +3181,7 @@ def _get_batch_header(format_type: str, batch_num: int, total_batches: int) -> s
     if format_type == "telegram":
         return f"<b>[第 {batch_num}/{total_batches} 批次]</b>\n\n"
     elif format_type == "slack":
-        return f"*[第 {batch_num}/{total_batches} 批次]*\n\n"
+        return f"*[{batch_num}/{total_batches}번째 배치]*\n\n"
     elif format_type in ("wework_text", "bark"):
         # 企业微信文本模式和 Bark 使用纯文本格式
         return f"[第 {batch_num}/{total_batches} 批次]\n\n"
@@ -3300,7 +3300,7 @@ def split_content_into_batches(
         base_header += f"**类型：** 热点分析报告\n\n"
         base_header += "---\n\n"
     elif format_type == "slack":
-        base_header = f"*总新闻数：* {total_titles}\n\n"
+        base_header = f"*총 뉴스 수:* {total_titles}\n\n"
 
     base_footer = ""
     if format_type in ("wework", "bark"):
@@ -3324,9 +3324,9 @@ def split_content_into_batches(
         if update_info:
             base_footer += f"\n> TrendRadar 发现新版本 **{update_info['remote_version']}**，当前 **{update_info['current_version']}**"
     elif format_type == "slack":
-        base_footer = f"\n\n_更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}_"
+        base_footer = f"\n\n_업데이트: {now.strftime('%Y-%m-%d %H:%M:%S')}_"
         if update_info:
-            base_footer += f"\n_TrendRadar 发现新版本 *{update_info['remote_version']}*，当前 *{update_info['current_version']}_"
+            base_footer += f"\n_TrendRadar 새 버전 *{update_info['remote_version']}* 감지, 현재 *{update_info['current_version']}*_"
 
     stats_header = ""
     if report_data["stats"]:
@@ -3341,7 +3341,7 @@ def split_content_into_batches(
         elif format_type == "dingtalk":
             stats_header = f"📊 **热点词汇统计**\n\n"
         elif format_type == "slack":
-            stats_header = f"📊 *热点词汇统计*\n\n"
+            stats_header = f"📊 *핫키워드 통계*\n\n"
 
     current_batch = base_header
     current_batch_has_content = False
@@ -3352,11 +3352,23 @@ def split_content_into_batches(
         and not report_data["failed_ids"]
     ):
         if mode == "incremental":
-            mode_text = "增量模式下暂无新增匹配的热点词汇"
+            mode_text = (
+                "증분 모드에서 새로 매칭된 핫키워드가 없습니다"
+                if format_type == "slack"
+                else "增量模式下暂无新增匹配的热点词汇"
+            )
         elif mode == "current":
-            mode_text = "当前榜单模式下暂无匹配的热点词汇"
+            mode_text = (
+                "현재 순위 모드에서 매칭된 핫키워드가 없습니다"
+                if format_type == "slack"
+                else "当前榜单模式下暂无匹配的热点词汇"
+            )
         else:
-            mode_text = "暂无匹配的热点词汇"
+            mode_text = (
+                "매칭된 핫키워드가 없습니다"
+                if format_type == "slack"
+                else "暂无匹配的热点词汇"
+            )
         simple_content = f"📭 {mode_text}\n\n"
         final_content = base_header + simple_content + base_footer
         batches.append(final_content)
@@ -3442,14 +3454,14 @@ def split_content_into_batches(
             elif format_type == "slack":
                 if count >= 10:
                     word_header = (
-                        f"🔥 {sequence_display} *{word}* : *{count}* 条\n\n"
+                        f"🔥 {sequence_display} *{word}* : *{count}* 건\n\n"
                     )
                 elif count >= 5:
                     word_header = (
-                        f"📈 {sequence_display} *{word}* : *{count}* 条\n\n"
+                        f"📈 {sequence_display} *{word}* : *{count}* 건\n\n"
                     )
                 else:
-                    word_header = f"📌 {sequence_display} *{word}* : {count} 条\n\n"
+                    word_header = f"📌 {sequence_display} *{word}* : {count} 건\n\n"
 
             # 构建第一条新闻
             first_news_line = ""
@@ -3597,7 +3609,9 @@ def split_content_into_batches(
         elif format_type == "dingtalk":
             new_header = f"\n---\n\n🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
         elif format_type == "slack":
-            new_header = f"\n\n🆕 *本次新增热点新闻* (共 {report_data['total_new_count']} 条)\n\n"
+            new_header = (
+                f"\n\n🆕 *이번 신규 핫뉴스* (총 {report_data['total_new_count']}건)\n\n"
+            )
 
         test_content = current_batch + new_header
         if (
@@ -3626,7 +3640,7 @@ def split_content_into_batches(
             elif format_type == "dingtalk":
                 source_header = f"**{source_data['source_name']}** ({len(source_data['titles'])} 条):\n\n"
             elif format_type == "slack":
-                source_header = f"*{source_data['source_name']}* ({len(source_data['titles'])} 条):\n\n"
+                source_header = f"*{source_data['source_name']}* ({len(source_data['titles'])}건):\n\n"
 
             # 构建第一条新增新闻
             first_news_line = ""
@@ -3948,7 +3962,7 @@ def send_to_notifications(
         slack_results = []
         for i, url in enumerate(slack_urls):
             if url:
-                account_label = f"账号{i+1}" if len(slack_urls) > 1 else ""
+                account_label = f"{i+1}번 계정" if len(slack_urls) > 1 else ""
                 result = send_to_slack(
                     url, report_data, report_type, update_info_to_send, proxy_url, mode, account_label
                 )
