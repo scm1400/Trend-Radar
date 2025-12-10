@@ -2,7 +2,20 @@
   "permissions": {
     "allow": [
       "Bash(ls:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(wc:*)",
+      "WebSearch",
+      "WebFetch(domain:gist.github.com)",
+      "Bash(pnpm run presource:*)",
+      "Bash(pnpm install)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run typecheck)",
+      "Bash(curl:*)",
+      "Bash(apt-get update:*)",
+      "Bash(apt-get install:*)",
+      "Bash(timeout 30 pnpm dev:*)"
     ]
   }
 }

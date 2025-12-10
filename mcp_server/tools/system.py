@@ -4,6 +4,7 @@
 实现系统状态查询和爬虫触发功能。
 """
 
+import os
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -147,6 +148,10 @@ class SystemManagementTools:
             id_to_name = {}
             failed_ids = []
 
+            news_base_url = (
+                os.getenv("TREND_RADAR_NEWS_BASE_URL")
+            ).rstrip("/")
+
             for i, id_info in enumerate(ids):
                 if isinstance(id_info, tuple):
                     id_value, name = id_info
@@ -157,7 +162,7 @@ class SystemManagementTools:
                 id_to_name[id_value] = name
 
                 # 构建请求URL
-                url = f"https://newsnow.busiyi.world/api/s?id={id_value}&latest"
+                url = f"{news_base_url}/api/s?id={id_value}&latest"
 
                 headers = {
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
