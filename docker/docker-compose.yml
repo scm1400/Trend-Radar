@@ -66,8 +66,8 @@ services:
       - "127.0.0.1:3333:3333"
 
     volumes:
-      - ../config:/app/config:ro
-      - ../output:/app/output:ro
+      - /data/coolify/trendradar/config:/app/config:ro
+      - /data/coolify/trendradar/output:/app/output:ro
 
     environment:
       - TZ=Asia/Shanghai
