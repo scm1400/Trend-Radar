@@ -62,10 +62,10 @@ RUN sed -i 's/\r$//' /entrypoint.sh.tmp && \
     mv /entrypoint.sh.tmp /entrypoint.sh && \
     chmod +x /entrypoint.sh && \
     chmod +x manage.py && \
-    mkdir -p /app/config /app/output
+    mkdir -p /app/config /app/output /app/config.defaults
 
-# 提供默认配置文件，避免容器首次启动时缺少配置
-COPY config/config.yaml config/frequency_words.txt /app/config/
+# 提供默认配置文件（存放在非 /app/config 路径，避免被 volume 覆盖）
+COPY config/config.yaml config/frequency_words.txt /app/config.defaults/
 
 ENV PYTHONUNBUFFERED=1 \
     CONFIG_PATH=/app/config/config.yaml \
