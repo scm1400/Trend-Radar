@@ -4,11 +4,12 @@ machine learning
 deep learning
 LLM
 GPT
+GPT-4
+GPT-5
 
 OpenAI
 ChatGPT
-GPT-4
-GPT-5
+sora
 Sam Altman
 
 Anthropic
@@ -25,6 +26,12 @@ Azure
 Meta
 Llama
 
+NVIDIA
+GPU
+CUDA
+AMD
+Jensen Huang
+
 Apple
 iPhone
 iPad
@@ -37,41 +44,7 @@ Elon Musk
 SpaceX
 Starlink
 
-NVIDIA
-GPU
-CUDA
-Jensen Huang
-
-AMD
-
-startup
-funding
-YC
-Y Combinator
-Series A
-seed round
-acquisition
-
-open source
-GitHub
-repository
-developer
-programming
-
-Python
-JavaScript
-TypeScript
-Rust
-Go
-
-React
-Next.js
-Node.js
-Vue
-
 AWS
-cloud
-serverless
 Kubernetes
 Docker
 
@@ -81,107 +54,37 @@ Ethereum
 blockchain
 Web3
 
+google
+gemini
+nano banana
+나노바나나
+제미나이
+
 cybersecurity
-security
 vulnerability
-hack
 data breach
 
 robotics
-autonomous
 self-driving
-
-quantum
-computing
 
 API
 SDK
-framework
-library
 
-database
 PostgreSQL
 MongoDB
 Redis
 
-launch
-release
-update
-beta
+React
+Next.js
+Node.js
 
-
-DeepSeek
-
-화웨이
-HarmonyOS
-
-DJI
-
-유니트리
-
-!차
-!식당
-
-삼체
-
-bytedance
+인공지능
+자율주행
+로봇
+반도체
 
 테슬라
 머스크
-
-마이크로소프트
-Microsoft
-
 엔비디아
-NVIDIA
 젠슨 황
-
-AMD
-
 구글
-google
-gemini
-deepmind
-
-chatgpt
-openai
-sora
-
-claude
-Anthropic
-
-iphone
-ipad
-mac
-ios
-
-ai
-!gai
-인공지능
-
-자율주행
-
-로봇
-
-국산
-중국
-
-미국
-일본
-한국
-
-반도체
-노광장비
-
-과학기술
-
-원자력
-
-수력발전소
-
-달
-달 착륙
-화성
-우주
-우주선
-항공
